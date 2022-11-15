@@ -2,6 +2,12 @@
 
 <h1 align="center"> Sejam Bem-Vindos ao universo de Tayvat </h1>
 
-Olá Viajante, me chamo Paimon, seja bem vindo a este repositório aqui você verá todo nossos códigos envolvento es 
-
-_Projeto individual do Primeiro Semestre de ADS na instituição Sptech_
+Olá Viajante, me chamo Paimon, seja bem vindo a este repositório aqui você verá todo nossos códigos envolvento nosso site Help Impact, ele tem como finalidade ajudar outros viajantes como você. Espero que curta qualquer dúvida que tenha só consultar nosso sumário ou enviar um email pro nosso desenvolvedor pedro.reis@sptech.school,
+nós vemos nesse mundão de Teyvat
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+_Projeto individual do Primeiro Semestre 2022 de ADS na instituição Sptech School_
