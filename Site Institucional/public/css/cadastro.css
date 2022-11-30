@@ -1,12 +1,23 @@
 @font-face {
-	font-family: [HYWenHei-85W];
+	font-family: 'HYWenHei 85W';
 	src: url('../assets/HYWenHei-85W.ttf') format(truetype);
+ }
+
+ *{
+	padding: 0;
+	margin: 0;
  }
  
 /* Background */
+
+body {
+
+	overflow: hidden;
+}
+
 .background { 
-	width:1920px;
-	height:1080px;
+	width:100%;
+	height:99.9%;
 	position:absolute;
 	background: linear-gradient(180deg, #524892 0%, #81B2CA 88.83%);
 }
@@ -52,7 +63,7 @@
 	position:fixed;
 	left:1039px;
 	top:229px;
-	font-family:HYWenHei-85W;
+	font-family:'HYWenHei 85W';
 	text-align:center;
 	font-size:48px;
 	letter-spacing:0;
@@ -65,7 +76,7 @@
 	position:fixed;
 	left:1038px;
 	top:457px;
-	font-family:HYWenHei-85W;
+	font-family:'HYWenHei 85W';
 	text-align:center;
 	font-size:48px;
 	letter-spacing:0;
@@ -78,7 +89,7 @@
 	position:fixed;
 	left:1010px;
 	top:688px;
-	font-family:HYWenHei-85W;
+	font-family:'HYWenHei 85W';
 	text-align:center;
 	font-size:48px;
 	letter-spacing:0;
@@ -88,6 +99,12 @@
 
 /* Inputs */
 
+input{
+	font-size: xx-large;
+	text-align: center;
+	border: none;
+}
+
 .email {
 
 	background-color:whitesmoke;
@@ -96,11 +113,10 @@
 	position:fixed;
 	left:1010px;
 	top:316px;
-	border-top-left-radius:100px;
+	border-top-left-radius:100px	;
 	border-top-right-radius:100px;
 	border-bottom-left-radius:100px;
 	border-bottom-right-radius:100px;
-	
   }
 
 .senha {
@@ -144,6 +160,7 @@
 	position:fixed;
 	left:1162px;
 	top:922px;
+	border: none;
 	border-top-left-radius:34px;
 	border-top-right-radius:34px;
 	border-bottom-left-radius:34px;
@@ -151,7 +168,8 @@
 
 	/* Texto botão */
 	color: black;
-	font-size: 78px;
+	font-family:'HYWenHei 85W';
+	font-size: 58px;
 	cursor: pointer;
  }
 
