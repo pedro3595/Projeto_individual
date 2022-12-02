@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/Icons/logo2.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Impact | Perfil </title>
+
+    <link rel="stylesheet" href="./css/perfil.css">
+    <link rel="stylesheet" href="./css/quiz.css">
+
+    <script src="js/funcoes.js"></script>
+
+    <!-- scripts do Chart.js - 2022-1 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body onload=" atualizarFeed()">
+
+    <div class="janela">
+        <div class="header-left">
+
+            <h1>Help Impact</h1>
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="btn-nav">
+
+                <h3>Quiz</h3>
+
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./mural.html">
+                    <h3>Comentarios</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+
+        </div>
+
+        <div class="box">
+
+            <h2>Quiz</h2>
+            <div id="quiz"></div>
+            <button id="submit">Resultado</button>
+            <div id="results">
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    
+	b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    
+    var myQuestions = [
+	{
+		question: "1) Qual o nome da companheira do viajante?",
+		answers: {
+			a: 'Paimon<br>',
+			b: 'Shogun Raiden<br>',
+            c: 'Yae Miko<br>'
+		},
+		correctAnswer: 'a'
+	},
+	{
+		question: "2) Qual nome do arconte de Mondstadt?",
+		answers: {
+			a: 'Morax<br>',
+			b: 'Shogun Raiden<br>',
+			c: 'Venti<br>'
+		},
+		correctAnswer: 'c'
+	},
+	{
+		question: "3) Qual nome do arconde de Sumeru?",
+		answers: {
+			a: 'Yae Miko<br>',
+			b: 'Nahida<br>',
+            c: 'Paimon<br>'
+		},
+		correctAnswer: 'b'
+	},
+    {
+		question: "4) Qual nome do arconte de Liyue?",
+		answers: {
+            a: 'Amber<br>',
+			b: 'Shogun Raiden<br>',
+            c: 'Lumine<br>'
+		},
+		correctAnswer: 'b'
+	},
+    {
+		question: "5) Qual nome do arconte de Inazuma?",
+		answers: {
+			a: 'Diluc<br>',
+			b: 'Shogun Raiden<br>',
+			c: 'Yae Miko<br>'
+		},
+		correctAnswer: 'b'
+	},
+    {
+		question: "6) Quando Genshin Impact Lançou?",
+		answers: {
+			a: '2019',
+			b: '2020',
+			c: '2018'
+		},
+		correctAnswer: 'b'
+	}
+];
+
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+	function showQuestions(questions, quizContainer){
+
+		var output = [];
+		var answers;
+
+		for(var i=0; i<questions.length; i++){
+			
+			answers = [];
+
+			for(letter in questions[i].answers){
+
+				answers.push(
+					'<label>'
+						+ '<input type="radio" name="question'+i+'" value="'+letter+'">'
+						+ questions[i].answers[letter]
+					+ '</label>'
+				);
+			}
+
+			output.push(
+				'<div class="question">' + questions[i].question + '</div>'
+				+ '<div class="answers">' + answers.join('') + '</div>'
+			);
+		}
+
+		quizContainer.innerHTML = output.join('');
+	}
+
+	function showResults(questions, quizContainer, resultsContainer){
+		var answerContainers = quizContainer.querySelectorAll('.answers');
+
+		var userAnswer = '';
+		var numCorrect = 0;
+        var pontos = 0;
+		
+		for(var i=0; i<questions.length; i++){
+
+			userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+			if(userAnswer===questions[i].correctAnswer){
+				
+				numCorrect++;
+                pontos++
+
+			}
+
+		}
+        if (numCorrect <= 2) {
+            resultsContainer.innerHTML = numCorrect + ' de ' + questions.length +  '<p>Você precisa estudar mais sobre adoção responsável de pets.</p>';
+        }
+        else if (numCorrect <= 3) {
+            resultsContainer.innerHTML = '<p>' + numCorrect + ' de ' + questions.length + '<p><br>Você está no caminho certo para adotar um pet<br></p>';
+        }
+        else if (numCorrect == 6) {
+            resultsContainer.innerHTML = numCorrect + ' de ' + questions.length + '<p><br>Parabéns, você está apto a fazer uma adoção responsavel. Clique no botão Adote</p><br>';
+        }
+        pontoRegistra(pontos);
+	}
+	showQuestions(questions, quizContainer);
+
+	submitButton.onclick = function(){
+		showResults(questions, quizContainer, resultsContainer);
+	}
+} 
+
+function pontoRegistra(pontos,numCorrect) {
+    var fkUsuario = sessionStorage.ID_USUARIO;
+
+    fetch("/usuarios/pontoRegistra", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                acertosServer: numCorrect,
+                pontosServer: pontos,
+                fkUsuarioServer: fkUsuario,
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            //finalizarAguardar();
+        });
+
+        return false;
+    }
+</script>
