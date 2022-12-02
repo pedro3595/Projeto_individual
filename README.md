@@ -2,8 +2,8 @@
 
 <h1 align="center"> Sejam Bem-Vindos ao universo de Tayvat </h1>
 
-Olá Viajante, me chamo Paimon, seja bem vindo a este repositório aqui você verá todo nossos códigos envolvento nosso site Help Impact, ele tem como finalidade ajudar outros viajantes como você. Espero que curta qualquer dúvida que tenha só consultar nosso sumário ou enviar um email pro nosso desenvolvedor pedro.reis@sptech.school,
-nós vemos nesse mundão de Teyvat
+Olá Viajante, me chamo Paimon, seja bem vindo a este repositório aqui você verá todo nossos códigos envolvento nosso site Help Impact, ele tem como finalidade ajudar outros viajantes como você. Espero que curta qualquer dúvida que tenha enviar um email pro nosso desenvolvedor pedro.reis@sptech.school,
+nós vemos nesse mundão de Teyvat. Tchauzinho ♥
 <br>
 <br>
 <br>
