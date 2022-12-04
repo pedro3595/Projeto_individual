@@ -1,0 +1,121 @@
+@font-face {
+	font-family: 'HYWenHei 85W';
+	src: url('../assets/HYWenHei-85W.ttf') format(truetype);
+ }
+
+ *{
+	padding: 0;
+	margin: 0;
+ }
+ 
+/* Background */
+
+body {
+
+	width: 100%;
+	height: 100vh;
+	background: linear-gradient(180deg, #E4B875 -24.31%, #784C46 112.87%);
+	background-size: 100%;
+}
+
+.background { 
+	
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Fim Background */
+
+/* Logo */
+
+.logo img { 
+	width: 200px;
+	height: 150px;
+}
+
+/* Fim Logo */
+
+/* Aether */
+
+.aether { 
+	width: 40%;
+	height: 850px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.aether img {
+	width: 100%;
+	height: 100%;
+}
+
+/* Fim Aether */
+
+/* Conteiner-input */
+
+.conteiner-input{
+	display: flex;
+	width: 50%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+/* Fim conteiner-input */
+
+/* Inputs */
+
+.inputs {
+
+	width: 50%;
+	margin-top: 100px;
+}
+
+.input{
+	display: flex;
+	flex-direction: column;
+	margin-top: 50px;
+}
+
+/* Fim inputs */
+
+label {
+
+	color:whitesmoke;
+	font-family:'HYWenHei 85W';
+	font-size:38px;
+}
+
+input {
+
+	text-align: center;
+	height: 50px;
+	background-color:whitesmoke;
+	border-radius: 100px;
+	border: none;
+
+}
+/* Botão */
+
+button {
+
+	margin-top: 100px;
+	background-color:yellow;
+	height: 10%;
+	width: 40%;
+	border: none;
+	border-radius: 34px;
+
+	/* Texto botão */
+	color: black;
+	font-family:'HYWenHei 85W';
+	font-size: 38px;
+	cursor: pointer;
+ }
+
+ /* Fim botão */
