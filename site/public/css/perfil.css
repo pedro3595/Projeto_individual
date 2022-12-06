@@ -119,10 +119,10 @@ main .menu .menu-div .menu2 .btn {
 
 }
 
-button {
+a {
     border: none;
     background: none;
-    font-size: 110%;
+    font-size: 100%;
     font-weight: bold;
     color: whitesmoke;
     font-family: 'HYWenHei 85W';
